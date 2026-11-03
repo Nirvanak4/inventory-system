@@ -12,6 +12,11 @@ int main(){
     inv.Ispisi();
     std::cout<<"Ukupna vrijednost zaliha: "
     <<inv.UkupnaVrijednostZaliha()<<std::endl;
+    try{
+      inv.DodajProizvod(Proizvod(1, "Tastatura", 5, 40.0, 2));
+    }catch(const std::domain_error &e){
+        std::cout<<"Greska: "<<e.what()<<std::endl;
+    }
 
     return 0;
 }
