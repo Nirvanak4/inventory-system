@@ -10,4 +10,6 @@ void DodajProizvod(const Proizvod &p);
 void Ispisi() const;
 double UkupnaVrijednostZaliha() const;
 void AzurirajKolicinu(int sifra, int nova_kolicina);
+void PrikaziMaleZalihe() const;
+const Proizvod& Pretrazi(int sifra) const;
 };

@@ -30,6 +30,12 @@ try {
 } catch (const std::exception& e) {
     std::cout << "Greska: " << e.what() << std::endl;
 }
+try {
+    inv.Pretrazi(2).Ispisi(); 
+    inv.Pretrazi(99).Ispisi();  
+} catch (const std::exception& e) {
+    std::cout << "Greska: " << e.what() << std::endl;
+}
 
     return 0;
 }
