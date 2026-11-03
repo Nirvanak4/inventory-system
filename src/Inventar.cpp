@@ -34,3 +34,10 @@ int Inventar::NadjiIndeks(int sifra) const {
     }
     return -1;
 }
+void Inventar::AzurirajKolicinu(int sifra, int nova_kolicina){
+    int index=NadjiIndeks(sifra);
+    if(index==-1){
+        throw std::domain_error("Proizvod s tom sifrom ne postoji. ");
+    }
+    proizvodi[index].PostaviKolicinu(nova_kolicina);
+}

@@ -1,5 +1,6 @@
 #include "Proizvod.h"
 #include<iostream>
+#include<stdexcept>
 
 Proizvod::Proizvod(int sifra, const std::string &naziv, int kolicina,
     double cijena,
@@ -22,9 +23,12 @@ Proizvod::Proizvod(int sifra, const std::string &naziv, int kolicina,
     }
 
     void Proizvod::PostaviKolicinu(int nova_kolicina){
+        if(nova_kolicina<0)
+        throw std::domain_error("Kolicina ne smije biti negativna. ");
         kolicina=nova_kolicina;
     }
     void Proizvod::PostaviCijenu(double nova_cijena){
+        if(cijena<0) throw std::domain_error("Cijena ne smije biti negativna. ");
         cijena=nova_cijena;
     }
     

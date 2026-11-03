@@ -17,6 +17,19 @@ int main(){
     }catch(const std::domain_error &e){
         std::cout<<"Greska: "<<e.what()<<std::endl;
     }
+    try {
+    inv.AzurirajKolicinu(1, 20);    
+    inv.Ispisi();
+    inv.AzurirajKolicinu(99, 5);    
+} catch (const std::exception& e) {
+    std::cout << "Greska: " << e.what() << std::endl;
+}
+
+try {
+    inv.AzurirajKolicinu(1, -5);    
+} catch (const std::exception& e) {
+    std::cout << "Greska: " << e.what() << std::endl;
+}
 
     return 0;
 }
