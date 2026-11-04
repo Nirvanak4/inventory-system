@@ -2,6 +2,7 @@
 #include<iostream>
 #include<stdexcept>
 #include<fstream>
+#include<sstream>
 
 
 void Inventar::DodajProizvod(const Proizvod &p){
@@ -75,5 +76,30 @@ void Inventar::SpremiUDatoteku(const std::string &putanja) const{
        <<p.DajKolicinu()<<";"
        <<p.DajCijenu()<<";"
        <<p.DajMinimalnuZalihu()<<"\n"; 
+    }
+}
+void Inventar::UcitajIzDatoteke(const std::string& putanja) {
+    std::ifstream ulaz(putanja);
+    if (!ulaz) {
+        throw std::runtime_error("Datoteka se ne moze otvoriti.");
+    }
+
+    proizvodi.clear();   
+
+    std::string red;
+    while (std::getline(ulaz, red)) {
+        if (red.empty()) continue;   
+
+        std::stringstream ss(red);
+        std::string sifra, naziv, kolicina, cijena, minZaliha;
+
+        std::getline(ss, sifra, ';');
+        std::getline(ss, naziv, ';');
+        std::getline(ss, kolicina, ';');
+        std::getline(ss, cijena, ';');
+        std::getline(ss, minZaliha, ';');
+
+        DodajProizvod(Proizvod(std::stoi(sifra), naziv, std::stoi(kolicina),
+                               std::stod(cijena), std::stoi(minZaliha)));
     }
 }

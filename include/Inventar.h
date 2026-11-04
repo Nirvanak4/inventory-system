@@ -14,6 +14,6 @@ void AzurirajKolicinu(int sifra, int nova_kolicina);
 void PrikaziMaleZalihe() const;
 const Proizvod& Pretrazi(int sifra) const;
 void SpremiUDatoteku(const std::string &putanja) const;
-
+void UcitajIzDatoteke(const std::string &putanja);
 
 };

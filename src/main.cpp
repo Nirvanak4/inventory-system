@@ -37,5 +37,9 @@ try {
     std::cout << "Greska: " << e.what() << std::endl;
 }
 inv.SpremiUDatoteku("data/inventar.txt");
+Inventar inv2;
+inv2.UcitajIzDatoteke("data/inventar.txt");
+inv2.Ispisi();
+std::cout << "Ukupna vrijednost: " << inv2.UkupnaVrijednostZaliha() << std::endl;
     return 0;
 }
