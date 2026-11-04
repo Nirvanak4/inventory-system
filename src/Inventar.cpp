@@ -1,6 +1,7 @@
 #include "Inventar.h"
 #include<iostream>
 #include<stdexcept>
+#include<fstream>
 
 
 void Inventar::DodajProizvod(const Proizvod &p){
@@ -62,4 +63,17 @@ const Proizvod &Inventar::Pretrazi(int sifra) const{
     }
     return proizvodi[index];
 
+}
+void Inventar::SpremiUDatoteku(const std::string &putanja) const{
+    std::ofstream izlaz(putanja);
+    if(!izlaz){
+        throw std::runtime_error("Datoteka se ne moze otvoriti. ");
+    }
+    for(const auto &p:proizvodi){
+       izlaz<<p.DajSifru()<<";"
+       <<p.DajNaziv()<<";"
+       <<p.DajKolicinu()<<";"
+       <<p.DajCijenu()<<";"
+       <<p.DajMinimalnuZalihu()<<"\n"; 
+    }
 }

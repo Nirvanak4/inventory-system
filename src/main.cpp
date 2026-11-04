@@ -36,6 +36,6 @@ try {
 } catch (const std::exception& e) {
     std::cout << "Greska: " << e.what() << std::endl;
 }
-
+inv.SpremiUDatoteku("data/inventar.txt");
     return 0;
 }
